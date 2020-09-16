@@ -1,0 +1,27 @@
+version: "1.0.0"
+
+name: ESLint for Node
+description: |
+  This will install some stuff and scaffold react project.
+files:
+  - name: .eslintrc.js
+    strategy: replace
+  
+  - name: package.json
+    strategy: merge-left
+    
+  # - name: .depcheckrc
+  #   strategy: ignore
+  #   destination: sample/.depcheckrc
+  # 
+  - name: zz/skf.js
+    strategy: replace
+    destination: skf.js
+    
+tags: 
+  - name: eslint
+    description: Install eslint files
+  
+
+    
+    

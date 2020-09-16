@@ -1,0 +1,49 @@
+properties:
+  version:
+    type: string
+  name: 
+    type: string
+  
+  description:
+    type: string
+  
+  files:
+    type: array
+    items:
+      required:
+        - name
+        - strategy
+      properties:
+        name:
+          type: string
+        strategy:
+          type: string
+          enum: 
+            - replace
+            - ignore
+            - merge-left
+            - merge-right
+        destination:
+          type: string
+      additionalProperties: false
+  
+  tags:
+    type: array
+    items:
+      required:
+        - name
+        - description
+      properties:
+        name:
+          type: string
+        description: 
+          type: string
+      additionalProperties: false
+      
+    
+required: 
+  - version
+  - name
+  - files
+    
+additionalProperties: false
