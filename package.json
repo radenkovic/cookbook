@@ -9,7 +9,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "engines": {
     "node": ">= 12"
@@ -17,16 +17,14 @@
   "dependencies": {
     "ajv": "^6.12.5",
     "chalk": "^4.1.0",
-    "dsn-parser": "^1.0.3",
     "inquirer": "^7.3.3",
     "js-yaml": "^3.14.0",
     "lodash": "^4.17.20",
-    "lokijs": "^1.5.11",
     "ora": "^5.1.0",
     "rimraf": "^3.0.2",
+    "shortid": "^2.2.15",
     "simple-git": "^2.20.1",
-    "sort-package-json": "^1.44.0",
-    "url-parse": "^1.4.7"
+    "sort-package-json": "^1.44.0"
   },
   "devDependencies": {
     "eslint": "^7.9.0",
@@ -35,6 +33,7 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.4.2",
     "prettier": "^2.1.1"
   }
 }
