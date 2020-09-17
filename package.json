@@ -4,22 +4,29 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "main": ".eslintrc.js",
+  "main": "lib/index",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": ">= 12"
+  },
   "dependencies": {
     "ajv": "^6.12.5",
     "chalk": "^4.1.0",
+    "dsn-parser": "^1.0.3",
     "inquirer": "^7.3.3",
     "js-yaml": "^3.14.0",
     "lodash": "^4.17.20",
+    "lokijs": "^1.5.11",
     "ora": "^5.1.0",
+    "rimraf": "^3.0.2",
     "simple-git": "^2.20.1",
-    "sort-package-json": "^1.44.0"
+    "sort-package-json": "^1.44.0",
+    "url-parse": "^1.4.7"
   },
   "devDependencies": {
     "eslint": "^7.9.0",

@@ -25,7 +25,6 @@ properties:
             - merge-right
         destination:
           type: string
-      additionalProperties: false
   
   tags:
     type: array
@@ -38,7 +37,6 @@ properties:
           type: string
         description: 
           type: string
-      additionalProperties: false
       
     
 required: 
@@ -46,4 +44,3 @@ required:
   - name
   - files
     
-additionalProperties: false
