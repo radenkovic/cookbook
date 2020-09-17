@@ -4,17 +4,17 @@ name: ESLint for Node
 description: |
   This will install some stuff and scaffold react project.
 files:
-  - name: .eslintrc.js
-    strategy: replace
+  - path: .eslintrc.js
+    strategy: skip-if-exists
   
-  - name: package.json
+  - path: package.json
     strategy: merge-left
     
   # - name: .depcheckrc
   #   strategy: ignore
   #   destination: sample/.depcheckrc
   # 
-  - name: zz/skf.js
+  - path: zz/skf.js
     strategy: replace
     destination: skf.js
     

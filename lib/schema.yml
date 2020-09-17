@@ -11,16 +11,16 @@ properties:
     type: array
     items:
       required:
-        - name
+        - path
         - strategy
       properties:
-        name:
+        path:
           type: string
         strategy:
           type: string
           enum: 
             - replace
-            - ignore
+            - skip-if-exists
             - merge-left
             - merge-right
         destination:
