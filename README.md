@@ -4,7 +4,7 @@ Still in WIP.
 
 You can try:
 
-`npx skafold from radenkovic/recipes react`
+`npx skf from radenkovic/recipes react`
 
 
 

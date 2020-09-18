@@ -1,9 +1,9 @@
 {
-  "name": "skafold",
+  "name": "skf",
   "version": "0.0.1",
-  "description": "",
-  "license": "ISC",
-  "author": "",
+  "description": "Skafold tool.",
+  "license": "MIT",
+  "author": "Dan Radenkovic",
   "main": "bin/index",
   "directories": {
     "lib": "lib",
@@ -14,6 +14,14 @@
   },
   "engines": {
     "node": ">= 12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/radenkovic/skf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/radenkovic/skf/issues",
+    "email": "dan@radenkovic.org"
   },
   "dependencies": {
     "ajv": "^6.12.5",
