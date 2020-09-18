@@ -24,7 +24,8 @@
     "rimraf": "^3.0.2",
     "shortid": "^2.2.15",
     "simple-git": "^2.20.1",
-    "sort-package-json": "^1.44.0"
+    "sort-package-json": "^1.44.0",
+    "yargs": "^16.0.3"
   },
   "devDependencies": {
     "eslint": "^7.9.0",
