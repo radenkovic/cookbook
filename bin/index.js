@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const store = require('../lib');
 const { argv } = require('yargs');
 const chalk = require('chalk');

@@ -1,6 +1,6 @@
 {
   "name": "skf",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Skafold tool.",
   "license": "MIT",
   "author": "Dan Radenkovic",
@@ -9,6 +9,7 @@
     "lib": "lib",
     "bin": "bin"
   },
+  "bin": "bin/index.js",
   "scripts": {
     "test": "jest"
   },
