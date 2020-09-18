@@ -4,9 +4,10 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "main": "lib/index",
+  "main": "bin/index",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "bin": "bin"
   },
   "scripts": {
     "test": "jest"
