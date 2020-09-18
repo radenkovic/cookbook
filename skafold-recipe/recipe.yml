@@ -6,17 +6,23 @@ description: |
 files:
   - path: .eslintrc.js
     strategy: skip-if-exists
+    destination: tmp/.eslintrc.js
   
   - path: package.json
-    strategy: merge-left
+    strategy: merge
+    destination: tmp/package.json
     
-  # - name: .depcheckrc
-  #   strategy: ignore
-  #   destination: sample/.depcheckrc
-  # 
-  - path: zz/skf.js
+  - path: .depcheckrc
     strategy: replace
-    destination: skf.js
+    destination: sample/.depcheckrc
+  
+  - path: zz/skf.js
+    strategy: skip-if-exists
+    destination: tmp/zz/dsdas/dsa/dsaskf.js
+    
+  - path: .env
+    strategy: replace
+    destination: tmp/.env
     
 tags: 
   - name: eslint
