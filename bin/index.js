@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const { GIT } = require('../lib/constants/events');
 
 const store = require('../lib');
 const { argv } = require('yargs');
@@ -10,19 +11,21 @@ console.log(`
 ${chalk.bgCyan.blue(' Skafold ')} ${version}
 `);
 
-const [method, url, recipePath] = argv._;
+const [method, a, b] = argv._;
 
 switch (method) {
   case 'from':
-    store.dispatch('git', { url, recipePath });
+    store.dispatch(GIT, { url: a, recipePath: b });
     break;
   case 'local':
-    store.dispatch('recipe', url);
+    store.dispatch('recipe', a);
     break;
   case 'cleanup':
     store.dispatch('cleanup');
     break;
-  default:
-    store.dispatch('git', { url, recipePath });
+  case 'help':
+    store.dispatch('help');
     break;
+  default:
+    store.dispatch('help');
 }

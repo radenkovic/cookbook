@@ -25,5 +25,6 @@ module.exports = {
         singleQuote: true,
       },
     ],
+    'no-case-declarations': 0,
   },
 };
