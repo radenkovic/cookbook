@@ -19,7 +19,8 @@
   ],
   "bin": "bin/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ./lib ./bin ./test --ext .js --config ./.eslintrc.js"
   },
   "engines": {
     "node": ">= 12"

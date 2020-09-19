@@ -1,0 +1,36 @@
+name: Run tests
+
+on: 
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn install
+
+      # - name: Check dependencies (depcheck)
+      #   run: yarn depcheck
+
+      - name: Run Linter
+        run: yarn lint
+
+      - name: Run tests
+        run: yarn test
