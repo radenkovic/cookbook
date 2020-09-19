@@ -1,72 +1,60 @@
 const gitHandler = require('../../lib/handlers/git');
 const gitClient = require('../../lib/utils/git-client');
+const { READ_RECIPE } = require('../../lib/constants/events');
 const rimraf = require('rimraf');
 
-jest.mock('rimraf');
+let store;
+beforeEach(() => {
+  jest.resetAllMocks();
+  store = {
+    get: jest.fn(),
+    dispatch: jest.fn(),
+  };
+  gitClient.clone = jest.fn();
+});
 
 it('Throws when called without path', async () => {
-  try {
-    await gitHandler({});
-  } catch (e) {
-    expect(e.message).toBeDefined();
-  }
+  const done = jest.fn();
+  await gitHandler({}, store, done);
+  expect(done).toBeCalledTimes(1);
+  expect(done.mock.calls[0][0]).toBeInstanceOf(Error);
+  expect(rimraf.sync).toBeCalledTimes(0);
 });
 
 it('Calls all functions', async () => {
-  const get = jest.fn();
-  const dispatch = jest.fn();
-  const clone = jest.fn();
+  const done = jest.fn();
 
-  const store = {
-    get,
-    dispatch,
-  };
+  store.get.mockReturnValueOnce('test_dirname');
 
-  gitClient.clone = clone;
-  get.mockReturnValueOnce('test_dirname');
-
-  await gitHandler({ url: 'http://sample.com' }, store);
-  expect(clone).toBeCalledTimes(1);
-  expect(clone).toBeCalledWith('http://sample.com', 'test_dirname');
-  expect(dispatch).toBeCalledTimes(1);
-  expect(dispatch).toBeCalledWith('git-done', 'test_dirname');
+  await gitHandler({ url: 'http://sample.com' }, store, done);
+  expect(gitClient.clone).toBeCalledTimes(1);
+  expect(gitClient.clone).toBeCalledWith('http://sample.com', 'test_dirname', {
+    '--depth': 1,
+  });
+  expect(done).toBeCalledTimes(1);
+  expect(rimraf.sync).toBeCalledTimes(1);
 });
 
 it('transforms string to github url', async () => {
-  const get = jest.fn();
-  const dispatch = jest.fn();
-  const clone = jest.fn();
-  rimraf.sync = jest.fn();
+  const done = jest.fn();
 
-  const store = {
-    get,
-    dispatch,
-  };
-
-  gitClient.clone = clone;
-  get.mockReturnValueOnce('test_dirname2');
-
-  await gitHandler({ url: 'radenkovic/krang' }, store);
-  expect(clone).toBeCalledWith(
+  store.get.mockReturnValueOnce('DEFAULT_DIR');
+  await gitHandler({ url: 'radenkovic/krang' }, store, done);
+  expect(gitClient.clone).toBeCalledWith(
     'git@github.com:radenkovic/krang.git',
-    'test_dirname2'
+    'DEFAULT_DIR',
+    { '--depth': 1 }
   );
 });
 
-it('dispatches recipe path', async () => {
-  const get = jest.fn();
-  const dispatch = jest.fn();
-  const clone = jest.fn();
-  rimraf.sync = jest.fn();
-
-  const store = {
-    get,
-    dispatch,
-  };
-
-  gitClient.clone = clone;
-  get.mockReturnValueOnce('test_dirname');
-
-  await gitHandler({ url: 'radenkovic/krang', recipePath: './test' }, store);
-  expect(dispatch).toBeCalledWith('git-done', 'test_dirname/test');
+it('calls done with recipe path', async () => {
+  const done = jest.fn();
+  store.get.mockReturnValueOnce('test_dirname');
+  await gitHandler(
+    { url: 'radenkovic/krang', recipePath: './test' },
+    store,
+    done
+  );
+  expect(done).toBeCalledWith(null, READ_RECIPE, 'test_dirname/test');
+  expect(rimraf.sync).toBeCalledTimes(1);
 });

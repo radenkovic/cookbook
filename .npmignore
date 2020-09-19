@@ -1,0 +1,7 @@
+.git
+.github
+examples
+test
+.eslintrc.js
+jest.config.js
+README.md
