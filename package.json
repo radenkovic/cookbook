@@ -9,6 +9,14 @@
     "lib": "lib",
     "bin": "bin"
   },
+  "keywords": [
+    "scaffolding",
+    "cli",
+    "tool",
+    "git",
+    "recipe",
+    "yaml"
+  ],
   "bin": "bin/index.js",
   "scripts": {
     "test": "jest"
