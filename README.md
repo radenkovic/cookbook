@@ -12,7 +12,7 @@ Features:
 
 ## Getting started:
 
-This will pull recipe from this repository (check `examples/hello` folder).
+This will pull recipe from this repository (check [examples/hello](https://github.com/radenkovic/cookbook/tree/master/examples/hello) folder).
 
 ```js
   npx run-recipe radenkovic/cookbook examples/hello
