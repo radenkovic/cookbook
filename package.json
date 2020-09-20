@@ -1,6 +1,6 @@
 {
   "name": "run-recipe",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Cookbook for your recipes.",
   "license": "MIT",
   "author": "Dan Radenkovic",
@@ -46,6 +46,7 @@
     "shortid": "^2.2.15",
     "simple-git": "^2.20.1",
     "sort-package-json": "^1.44.0",
+    "update-notifier": "^4.1.1",
     "yargs": "^16.0.3"
   },
   "devDependencies": {

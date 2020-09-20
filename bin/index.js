@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+const updateNotifier = require('update-notifier');
+const pkg = require('../package.json');
 const { GIT, READ_RECIPE, CLEANUP, HELP } = require('../lib/constants/events');
 
 const store = require('../lib');
@@ -10,6 +12,9 @@ console.log(`
 
 ${chalk.bgCyan.blue(' Cookbook ')} ${version}
 `);
+
+// Check for updates
+updateNotifier({ pkg }).notify();
 
 const [method, a, b] = argv._;
 

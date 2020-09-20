@@ -2,35 +2,11 @@ version: "1.0.0"
 
 name: My first cookbook recipe
 description: |
-  This will install some stuff and scaffold react project.
-
-variables:
-  - name: folder
-    prompt: "Enter folder where to store files"
-    default: tmp
-    type: string # only strings allowed for now
-
+  This recipe will create a template recipe.yml file in your working directory, and add COOKBOOK.md readme file.
 
 files:
-  - path: .eslintrc.js
+  - path: COOKBOOK.md
     strategy: skip-if-exists
-    destination: "{{folder}}/.eslintrc.js"
-  
-  - path: tmp/package.json
-    strategy: merge
-    destination: "{{folder}}/package.json"
-    
-  - path: .depcheckrc
-    strategy: replace
-    destination: "{{folder}}/.depcheckrc"
-  
-  - path: zz/skf.js
+
+  - path: recipe.yml
     strategy: skip-if-exists
-    destination: "{{folder}}/zz/dsdas/dsa/dsaskf.js"
-    
-  - path: .env
-    strategy: replace
-    destination: "{{folder}}/.env"
-
-
-    

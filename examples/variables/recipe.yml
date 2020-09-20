@@ -1,0 +1,28 @@
+version: "1.0.0"
+
+name: Cookbook recipe using variables
+description: |
+  This recipe will ask you for folder where to store files.
+
+variables:
+  - name: folder
+    prompt: "Enter folder where to store files"
+    default: tmp
+    type: string # only strings allowed for now
+
+
+files:  
+  - path: package.json
+    strategy: merge
+    destination: "{{folder}}/package.json"
+    
+  - path: sample-2.txt
+    strategy: skip-if-exists
+    destination: "{{folder}}/sample-2.txt"
+    
+  - path: sample.txt
+    strategy: replace
+    destination: "{{folder}}/.env"
+
+
+    
