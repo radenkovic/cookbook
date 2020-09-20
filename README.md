@@ -4,6 +4,8 @@
 >
 > Create your cookbook for your projects. Language agnostic, configuration-oriented.
 
+![screenshot](./examples/screenshot.png)
+
 Features:
 
 - CLI tool
