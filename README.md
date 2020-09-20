@@ -1,4 +1,4 @@
-# Cookbook
+# 👨‍🍳 Cookbook
 
 > `npx run-recipe [git repo] [path_to_recipe]`
 >
