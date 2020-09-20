@@ -6,8 +6,18 @@
 
 Features:
 
-- Configuration-only
+- CLI tool
+- GIT based, works for public/private repos and gists
+- Configuration-only (yaml files)
 - Language agnostic, can be used for anything
+- Supports variables
+
+### How it works?
+
+- when you `npx run-recipe someuser/somerepo somefolder`
+- it downloads the git repo and reads `recipe.yml` from `somefolder`
+- check example recipes [here](https://github.com/radenkovic/cookbook/tree/master/examples/hello)
+
 
 
 ## Getting started:
