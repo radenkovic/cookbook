@@ -1,7 +1,7 @@
 {
-  "name": "skf",
-  "version": "0.0.3",
-  "description": "Skafold tool.",
+  "name": "run-recipe",
+  "version": "0.0.4",
+  "description": "Cookbook for your recipes.",
   "license": "MIT",
   "author": "Dan Radenkovic",
   "main": "bin/index",

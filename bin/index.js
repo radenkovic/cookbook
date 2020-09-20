@@ -14,7 +14,7 @@ ${chalk.bgCyan.blue(' Skafold ')} ${version}
 const [method, a, b] = argv._;
 
 switch (method) {
-  case 'from':
+  case 'git':
     store.dispatch(GIT, { url: a, recipePath: b });
     break;
   case 'local':
@@ -27,5 +27,5 @@ switch (method) {
     store.dispatch(HELP);
     break;
   default:
-    store.dispatch(HELP);
+    store.dispatch(GIT, { url: method, recipePath: a });
 }

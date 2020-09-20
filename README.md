@@ -1,26 +1,27 @@
-# Skafold
+# Cookbook
 
 Still in WIP.
 
 You can try:
 
-`npx skf from radenkovic/recipes react`
+`npx run-recipe from radenkovic/recipes react`
 
 
-## Commands
+## Available commands
 
 
 From git:
-- npx skf from radenkovic react # shorthand for radenkovic/recipes
-- npx skf from git@github.com:radenkovic/recipes.git
-- npx skf from https://github.com/radenkovic/recipes.git
+- npx run-recipe radenkovic react # shorthand for radenkovic/recipes
+- npx run-recipe git@github.com:radenkovic/recipes.git
+- npx run-recipe https://github.com/radenkovic/recipes.git
+- npx run-recipe git radenkovic/recipes react
 
 From local folder:
-- nx skf local ./examples/basic
+- nx  run-recipe local ./examples/basic
 
 Help:
-- npx skf help
-- npx skf
+- npx  run-recipe help
+- npx  run-recipe
 
 ## Publish to npm
 
