@@ -29,6 +29,8 @@ properties:
             - remove-if-exists
         destination:
           type: string
+        description:
+          type: string
   
   tags:
     type: array
@@ -42,7 +44,20 @@ properties:
         description: 
           type: string
       
-    
+  variables:
+    type: array
+    items:
+      required:
+        - name
+        - type
+      properties:
+        name:
+          type: string
+        prompt:
+          type: string
+        type: 
+          enum:
+            - string
 required: 
   - version
   - name

@@ -8,7 +8,7 @@ const { version } = require('../package.json');
 
 console.log(`
 
-${chalk.bgCyan.blue(' Skafold ')} ${version}
+${chalk.bgCyan.blue(' Cookbook ')} ${version}
 `);
 
 const [method, a, b] = argv._;
