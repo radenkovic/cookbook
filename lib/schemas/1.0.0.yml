@@ -25,6 +25,8 @@ properties:
             - merge
             - merge-left
             - merge-right
+            - remove
+            - remove-if-exists
         destination:
           type: string
   

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { GIT } = require('../lib/constants/events');
+const { GIT, READ_RECIPE, CLEANUP, HELP } = require('../lib/constants/events');
 
 const store = require('../lib');
 const { argv } = require('yargs');
@@ -18,14 +18,14 @@ switch (method) {
     store.dispatch(GIT, { url: a, recipePath: b });
     break;
   case 'local':
-    store.dispatch('recipe', a);
+    store.dispatch(READ_RECIPE, a);
     break;
-  case 'cleanup':
-    store.dispatch('cleanup');
+  case CLEANUP:
+    store.dispatch(CLEANUP);
     break;
-  case 'help':
-    store.dispatch('help');
+  case HELP:
+    store.dispatch(HELP);
     break;
   default:
-    store.dispatch('help');
+    store.dispatch(HELP);
 }

@@ -8,9 +8,8 @@ files:
     strategy: skip-if-exists
     destination: tmp/.eslintrc.js
   
-  - path: package.json
+  - path: tmp/package.json
     strategy: merge
-    destination: tmp/package.json
     
   - path: .depcheckrc
     strategy: replace
