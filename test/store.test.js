@@ -19,11 +19,24 @@ it('dispatches action with arguments', () => {
   expect(c).toBeDefined();
 });
 
-it('Git integration test', (cb) => {
-  const errorHandler = require('../lib/handlers/error');
+it('Sucessfully unregisters handler', () => {
+  const hndlr = jest.fn();
   const store = require('../lib');
-  store.dispatch('git', { url: '' });
-  expect(errorHandler).toBeCalledTimes(1);
-  expect(errorHandler.mock.calls[0][0]).toBeInstanceOf(Error);
-  cb();
+  store.register('to-remove', hndlr);
+  store.unregister('to-remove', hndlr);
+  store.dispatch('to-remove');
+  expect(hndlr).toBeCalledTimes(0);
+});
+
+it('Store get and set', () => {
+  const store = require('../lib');
+  store.set('sample', 1);
+  expect(store.get('sample')).toBe(1);
+});
+
+it('Store get all handlers', () => {
+  const hndlr = jest.fn();
+  const store = require('../lib');
+  store.register('fake-handler', hndlr);
+  expect(store.handlers.includes('fake-handler')).toBe(true);
 });
